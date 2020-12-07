@@ -1,0 +1,16 @@
+name: 'CI'
+on:
+  - 'push'
+jobs:
+  dumpVersions:
+    name: 'Dump versions'
+    strategy:
+      matrix:
+        image:
+          - 'ubuntu-20.04'
+          - 'ubuntu-18.04'
+          - 'ubuntu-16.04'
+    runs-on: '${{ matrix.image }}'
+    steps:
+      - name: 'ls php*'
+        run: 'ls -l /usr/bin/php*'
